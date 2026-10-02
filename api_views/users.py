@@ -22,7 +22,10 @@ def get_all_users():
 
 
 def debug():
-    return_value = jsonify({'users': User.get_all_users_debug()})
+    # Patched: serialize only non-sensitive fields (username/email). The _debug
+    # endpoint no longer leaks every user's cleartext password or admin flag. It
+    # still returns the full user list, which health checks and DB seeding rely on.
+    return_value = jsonify({'users': User.get_all_users()})
     return return_value
 
 def me():
