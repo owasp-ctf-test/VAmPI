@@ -22,7 +22,7 @@ def get_all_users():
 
 
 def debug():
-    return_value = jsonify({'users': User.get_all_users_debug()})
+    return_value = jsonify({'users': User.get_all_users()})
     return return_value
 
 def me():

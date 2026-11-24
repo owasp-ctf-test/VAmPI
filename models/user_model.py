@@ -68,7 +68,7 @@ class User(db.Model):
 
     @staticmethod
     def get_user(username):
-        if vuln:  # SQLi Injection
+        if False:  # SQLi Injection
             user_query = f"SELECT * FROM users WHERE username = '{username}'"
             query = db.session.execute(text(user_query))
             ret = query.fetchone()
